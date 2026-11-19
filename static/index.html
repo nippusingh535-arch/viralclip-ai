@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ViralClips AI</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#090d18;color:white;font-family:Arial;padding:20px}
+.container{max-width:650px;margin:auto}
+header{padding:20px 0}
+.logo{font-size:28px;font-weight:bold;color:#8b7cff}
+.logo span{color:#00e5ff}
+.tag,.note{color:#aab1c5;line-height:1.6}
+.card{background:#151c2d;border:1px solid #29334b;border-radius:18px;padding:22px;margin-top:22px}
+h2{font-size:21px}
+label{display:block;margin:18px 0 9px}
+input,select{width:100%;padding:15px;border-radius:10px;border:1px solid #39445e;background:#0c1322;color:white;font-size:15px}
+button{width:100%;padding:16px;border:0;border-radius:11px;background:linear-gradient(90deg,#765cff,#00c8e8);color:white;font-weight:bold;font-size:16px;margin-top:20px}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.feature{background:#1d2740;padding:15px;border-radius:12px}
+footer{text-align:center;color:#8490a9;padding:30px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+<div class="logo">ViralClips <span>AI</span></div>
+<p class="tag">Turn Long Gaming Videos Into Viral Shorts</p>
+</header>
+
+<div class="card">
+<h2>🎮 Create Viral Clips</h2>
+<p class="note">Upload your gaming recording or paste a video link.</p>
+
+<form id="clipForm">
+
+<label>YouTube Video URL</label>
+<input type="url" id="videoUrl" placeholder="Paste video link here">
+
+<label>Or Upload Video</label>
+<input type="file" id="videoFile" accept="video/*">
+
+<label>Caption Language</label>
+<select id="language">
+<option value="hi">🇮🇳 Hindi Captions</option>
+<option value="en">🇬🇧 English Captions</option>
+<option value="both">🌍 Hindi + English Captions</option>
+</select>
+
+<label>Clip Duration</label>
+<select id="duration">
+<option value="15">15 Seconds</option>
+<option value="30" selected>30 Seconds</option>
+<option value="45">45 Seconds</option>
+<option value="60">60 Seconds</option>
+</select>
+
+<label>Video Format</label>
+<select id="format">
+<option value="9:16">9:16 YouTube Shorts / Reels</option>
+<option value="16:9">16:9 Landscape</option>
+</select>
+
+<button type="submit">✨ Generate Viral Clips</button>
+</form>
+
+<p class="note" id="status">Hindi • English • Gaming Highlights • AI Captions</p>
+</div>
+
+<div class="card">
+<h2>Features</h2>
+<div class="features">
+<div class="feature">🎯 AI Highlights</div>
+<div class="feature">🇮🇳 Hindi Captions</div>
+<div class="feature">🇬🇧 English Captions</div>
+<div class="feature">🌍 Dual Captions</div>
+<div class="feature">📱 Vertical Shorts</div>
+<div class="feature">⚡ Auto Clipping</div>
+</div>
+</div>
+
+<footer>ViralClips AI © 2026</footer>
+</div>
+
+<script>
+document.getElementById('clipForm').addEventListener('submit',function(e){
+e.preventDefault();
+
+const url=document.getElementById('videoUrl').value;
+const file=document.getElementById('videoFile').files[0];
+const language=document.getElementById('language').value;
+
+if(!url && !file){
+document.getElementById('status').textContent='Please paste a video URL or upload a video.';
+return;
+}
+
+const names={hi:'Hindi',en:'English',both:'Hindi + English'};
+
+document.getElementById('status').textContent=
+'Selected caption language: '+names[language]+'. Backend connection is not configured yet.';
+});
+</script>
+</body>
+</html>
